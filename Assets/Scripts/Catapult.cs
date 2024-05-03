@@ -7,6 +7,9 @@ public class Catapult : MonoBehaviour
     [SerializeField] private float _shootForce;
     [SerializeField] private ProjectileSpawner _projectileSpawner;
 
+    private readonly int LeftMouseButtonCode = 0;
+    private readonly int RightMouseButtonCode = 1;
+
     private void Start()
     {
         _projectileSpawner.Spawn(_projectilePoint);
@@ -20,7 +23,7 @@ public class Catapult : MonoBehaviour
 
     private void Shoot()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(LeftMouseButtonCode))
         {
             _springJoint.spring = _shootForce;
         }
@@ -28,7 +31,7 @@ public class Catapult : MonoBehaviour
 
     private void Reload()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(RightMouseButtonCode))
         {
             _springJoint.spring = 0;
             _projectileSpawner.Spawn(_projectilePoint);

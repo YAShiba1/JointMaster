@@ -9,20 +9,22 @@ public class Swing : MonoBehaviour
     private HingeJoint _hingeJoint;
     private JointMotor _jointMotor;
 
-    void Start()
+    private readonly KeyCode KeySpace = KeyCode.Space;
+
+    private void Start()
     {
         _hingeJoint = GetComponent<HingeJoint>();
         _jointMotor = _hingeJoint.motor;
     }
 
-    void Update()
+    private void Update()
     {
         Ride();
     }
 
     private void Ride()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeySpace))
         {
             _jointMotor.targetVelocity = _swingForce;
             _jointMotor.force = _force;
