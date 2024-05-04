@@ -9,7 +9,7 @@ public class Swing : MonoBehaviour
     private HingeJoint _hingeJoint;
     private JointMotor _jointMotor;
 
-    private readonly KeyCode KeySpace = KeyCode.Space;
+    private readonly KeyCode ShotKey = KeyCode.Space;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class Swing : MonoBehaviour
 
     private void Ride()
     {
-        if (Input.GetKeyDown(KeySpace))
+        if (Input.GetKeyDown(ShotKey))
         {
             _jointMotor.targetVelocity = _swingForce;
             _jointMotor.force = _force;
